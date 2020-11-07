@@ -23,3 +23,7 @@ fmain:
 circle:
 	$(FC) $(FFLAGS) -c circle.f
 
+clean:
+	rm cExec
+	rm fortranExec
+	rm *.o

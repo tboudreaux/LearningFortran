@@ -1,16 +1,21 @@
 FC="gfortran"
 FFLAGS="-g"
+NAME=exec
 
-default: all
+default: $(NAME)
 
-all: main subA subB
-	$(FC) $(FFLAGS) main.o subA.o subB.o -o exec
+$(NAME): main.o subA.o subB.o
+	$(FC) $(FFLAGS) main.o subA.o subB.o -o $(NAME)
 
-main:
+main.o:
 	$(FC) $(FFLAGS) -c main.f
 
-subA:
+subA.o:
 	$(FC) $(FFLAGS) -c subA.f
 
-subB:
+subB.o:
 	$(FC) $(FFLAGS) -c subB.f
+
+clean:
+	rm *.o
+	rm $(NAME)
